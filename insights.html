@@ -192,10 +192,55 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; align-items: center;
+      width: 40px; height: 40px; cursor: pointer; gap: 5px;
+      background: none; border: none; padding: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--muted); transition: all .3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--gold); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--gold); }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 99;
+      background: rgba(18,18,18,0.98);
+      border-bottom: 1px solid var(--border-gold);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 0;
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
+      padding: 12px 0;
+    }
+    .mobile-menu a {
+      font-size: 14px; color: var(--muted); letter-spacing: 0.06em;
+      padding: 16px 24px; border-bottom: 1px solid var(--border);
+      transition: color .2s, background .2s;
+      display: block;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--text); background: var(--surface); }
+    .mobile-menu a.mobile-cta { color: var(--orange); }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .mobile-menu { display: flex; }
       .page-hero { grid-template-columns: 1fr; padding: 120px 24px 56px; gap: 40px; }
       .ph-right { padding-top: 0; }
       .featured-wrap { padding: 0 24px; }
@@ -220,11 +265,23 @@
       <span class="nav-logo-name">Pranjal Singh</span>
     </div>
     <div class="nav-links">
-      <a href="about.html">About</a>
+      <a href="about.html">About Me</a>
       <a href="insights.html" class="active">Insights</a>
     </div>
     <a href="connect.html" class="nav-cta">Connect &#8594;</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="about.html">About Me</a>
+    <a href="insights.html">Insights</a>
+    <a href="connect.html" class="mobile-cta">Connect &#8594;</a>
+  </div>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
@@ -355,6 +412,43 @@
         card.style.display = show ? 'flex' : 'none';
       });
     }
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
   </script>
 
 </body>
