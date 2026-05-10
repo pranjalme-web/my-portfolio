@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://pranjalsingh.me/</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/about.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/insights.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/connect.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/insights/brand-brief-mistakes.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/insights/brand-growth-flywheel.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/insights/ai-marketing-operations.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/insights/d2c-funnel-audit.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://pranjalsingh.me/insights/ipl-media-strategy-challenger-brand.html</loc>
+  <lastmod>2026-05-10T14:39:18+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+
+</urlset>
